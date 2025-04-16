@@ -1,5 +1,5 @@
 ## Statistical-Water-Quality-Analysis-Across-India
-This project conducts a comprehensive statistical analysis of groundwater quality across various states in India. Using Python and machine learning techniques, it processes water quality data, generates visualizations, and builds predictive models to classify water as "Safe" or "Unsafe" and predict specific water quality parameters (e.g., pH).
+This project conducts a comprehensive statistical analysis of groundwater quality across various states in India. Using Python and machine learning techniques, it processes water quality data, generates visualizations, and builds predictive models to classify water as "Safe" or "Unsafe" and predict specific water quality parameters (e.g., pH, DO, Conductivity, TDS etc).
 
 ## This project aims to:
 
