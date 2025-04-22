@@ -455,7 +455,7 @@ from sklearn.metrics import mean_squared_error
 X = water_quality_data[feature_columns]
 y = water_quality_data['pH']  # Or choose any other continuous target
 
-# Split data into training and testing sets (80-20 split)
+# Splitting data into training and testing sets (80-20 split)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Normalizing the feature data
@@ -469,7 +469,7 @@ knn_regressor.fit(X_train_scaled, y_train)
 # Making predictions on the test set
 y_pred_reg = knn_regressor.predict(X_test_scaled)
 
-# Evaluate the model
+# Evaluating the model
 print("Mean Squared Error (MSE):", mean_squared_error(y_test, y_pred_reg))
 
 
@@ -508,7 +508,7 @@ print("Mean Squared Error (MSE):", mean_squared_error(y_test, y_pred_reg))
 # In[32]:
 
 
-# Check column names in the dataset
+# Checking column names in the dataset
 print(water_quality_data.columns)
 
 
@@ -526,14 +526,14 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_absolute_error, r2_score
 
-# Drop non-numerical columns and set the target variable (pH)
+# Dropping non-numerical columns and set the target variable (pH)
 X = water_quality_data.drop(columns=['State Name', 'pH', 'Water_Quality'])  # Dropping non-numerical columns
 y = water_quality_data['pH']
 
-# Split the data into training and testing sets
+# Splitting the data into training and testing sets
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Standardize the features (important for KNN)
+# Standardizing the features (important for KNN)
 scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
@@ -542,10 +542,10 @@ X_test = scaler.transform(X_test)
 # In[37]:
 
 
-# Initialize the KNN Regressor
+# Initializing the KNN Regressor
 knn_regressor = KNeighborsRegressor(n_neighbors=5)  # You can tune n_neighbors
 
-# Train the model
+# Training the model
 knn_regressor.fit(X_train, y_train)
 
 
@@ -555,17 +555,17 @@ knn_regressor.fit(X_train, y_train)
 # Initialize the KNN Regressor
 knn_regressor = KNeighborsRegressor(n_neighbors=5)  # You can tune n_neighbors
 
-# Train the model
+# Training the model
 knn_regressor.fit(X_train, y_train)
 
 
 # In[39]:
 
 
-# Predict on the test data
+# Predicting on the test data
 y_pred = knn_regressor.predict(X_test)
 
-# Evaluate the performance
+# Evaluating the performance
 mae = mean_absolute_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
