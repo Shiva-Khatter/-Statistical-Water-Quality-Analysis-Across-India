@@ -79,7 +79,7 @@ import pandas as pd
 # Assuming you have already loaded the data again as 'df', for example:
 df = pd.read_csv("gw.csv")
 
-# Convert all columns except 'State Name' to float
+# Converting all the columns except 'State Name' to float
 columns_to_convert = df.columns[df.columns != 'State Name']
 
 # Apply conversion
@@ -102,7 +102,7 @@ print(state_stats)
 # In[21]:
 
 
-# Get the mean value of each water quality parameter by state
+# Getting the mean value of each water quality parameter by state
 state_means = df.groupby('State Name').mean()
 
 # Display the mean values
