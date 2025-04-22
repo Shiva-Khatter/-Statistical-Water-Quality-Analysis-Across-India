@@ -18,4 +18,4 @@ Classification: Predicts water quality as "Safe" or "Unsafe" using KNN and Rando
 Regression: Predicts continuous parameters (e.g., pH) using KNN Regressor.
 Evaluation: Provides accuracy, precision, recall, F1-score, MAE, MSE, and R² metrics
 
-#---
+# ---
