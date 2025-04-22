@@ -458,15 +458,15 @@ y = water_quality_data['pH']  # Or choose any other continuous target
 # Split data into training and testing sets (80-20 split)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-# Normalize the feature data
+# Normalizing the feature data
 X_train_scaled = scaler.fit_transform(X_train)
 X_test_scaled = scaler.transform(X_test)
 
-# Train the KNN regressor
+# Training the KNN regressor
 knn_regressor = KNeighborsRegressor(n_neighbors=5)
 knn_regressor.fit(X_train_scaled, y_train)
 
-# Make predictions on the test set
+# Making predictions on the test set
 y_pred_reg = knn_regressor.predict(X_test_scaled)
 
 # Evaluate the model
