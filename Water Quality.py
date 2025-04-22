@@ -3,7 +3,6 @@
 
 # In[1]:
 
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -172,7 +171,7 @@ plt.show()
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Set a large canvas for better readability
+# Setting a large canvas for better readability
 plt.figure(figsize=(20, 30))
 
 # 1. Line plot for pH
@@ -245,7 +244,7 @@ plt.show()
 
 import pandas as pd
 
-# Load dataset (replace 'file_path' with the actual path to your file)
+# Loading the dataset (replace 'file_path' with the actual path to your file)
 data = pd.read_csv('gw.csv')
 
 # Inspect first few rows of the dataset
