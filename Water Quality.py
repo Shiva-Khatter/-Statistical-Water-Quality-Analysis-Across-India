@@ -1,34 +1,17 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
-
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 
-# In[2]:
-
-
 gw = pd.read_csv('gw.csv')
-
-
-# In[3]:
-
 
 gw.info()
 
-
-# In[5]:
-
-
 gw.head()
-
-
-# In[6]:
-
 
 # Remove the first row if it contains NaN values
 gw = gw.dropna(how='all').reset_index(drop=True)
@@ -39,38 +22,17 @@ gw.head()
 # Check for missing values across all columns
 gw.isnull().sum()
 
-
-# In[7]:
-
-
 gw.head()
-
-
-# In[8]:
-
 
 gw.describe()
 
-
-# In[9]:
-
-
 print(gw.columns)
-
-
-# In[15]:
 
 
 gw['Fluoride (mg/L)'].unique()
 
 
-# In[16]:
-
-
 gw.info()
-
-
-# In[19]:
 
 
 import pandas as pd
@@ -87,10 +49,6 @@ df[columns_to_convert] = df[columns_to_convert].apply(pd.to_numeric, errors='coe
 # Verify the new data types
 print(df.dtypes)
 
-
-# In[20]:
-
-
 # Group by 'State Name' and get descriptive statistics for all water quality parameters
 state_stats = df.groupby('State Name').describe()
 
@@ -98,18 +56,11 @@ state_stats = df.groupby('State Name').describe()
 print(state_stats)
 
 
-# In[21]:
-
-
 # Getting the mean value of each water quality parameter by state
 state_means = df.groupby('State Name').mean()
 
 # Display the mean values
 print(state_means)
-
-
-# In[23]:
-
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -132,10 +83,6 @@ for i, param in enumerate(parameters, 1):
 
 # Show the plots
 plt.show()
-
-
-# In[24]:
-
 
 import matplotlib.pyplot as plt
 import seaborn as sns
@@ -163,9 +110,6 @@ plt.tight_layout()
 
 # Show the plots
 plt.show()
-
-
-# In[26]:
 
 
 import matplotlib.pyplot as plt
@@ -270,8 +214,6 @@ print(data.head())
 print(data.isnull().sum())  # Recheck for missing values
 
 
-# In[11]:
-
 
 import pandas as pd
 
@@ -280,9 +222,6 @@ water_quality_data = pd.read_csv('gw.csv')
 
 # Check the first few rows of the dataset
 print(water_quality_data.head())
-
-
-# In[12]:
 
 
 # Fill missing values using the median for each column
@@ -296,9 +235,6 @@ for column in water_quality_data_filled.columns:
 
 # Check if the missing values have been filled
 print(water_quality_data_filled.isnull().sum())
-
-
-# In[14]:
 
 
 # Convert the numerical columns to numeric, coercing errors to NaN
@@ -318,23 +254,15 @@ for column in numerical_columns:
 print(water_quality_data.isnull().sum())
 
 
-# In[15]:
-
-
 # Descriptive statistics for the numerical columns
 descriptive_stats = water_quality_data.describe()
 print(descriptive_stats)
 
 
-# In[16]:
-
 
 # Descriptive statistics for the numerical columns
 descriptive_stats = water_quality_data.describe()
 print(descriptive_stats)
-
-
-# In[17]:
 
 
 import matplotlib.pyplot as plt
@@ -353,9 +281,6 @@ for i, column in enumerate(numerical_columns, 1):
     plt.ylabel('Frequency')
 plt.tight_layout()
 plt.show()
-
-
-# In[26]:
 
 
 # Plot histograms for each numerical column
@@ -378,9 +303,6 @@ plt.tight_layout()
 plt.show()
 
 
-# In[27]:
-
-
 # Compute the correlation matrix for numerical columns
 correlation_matrix = water_quality_data[numerical_columns].corr()
 
@@ -396,16 +318,10 @@ plt.title('Correlation Heatmap of Water Quality Parameters')
 plt.show()
 
 
-# In[28]:
-
-
 # Generate pairwise plot to explore relationships between variables
 sns.pairplot(water_quality_data[numerical_columns])
 plt.suptitle('Pairwise Plot of Water Quality Parameters', y=1.02)
 plt.show()
-
-
-# In[29]:
 
 
 from sklearn.model_selection import train_test_split
@@ -505,20 +421,11 @@ print("Mean Squared Error (MSE):", mean_squared_error(y_test, y_pred_reg))
 # The MSE is relatively low, suggesting that your KNN model (in regression mode) is performing well with minimal error.
 # Since you're predicting continuous values (like water quality measurements), having a small MSE means that the model's predictions are very close to the actual values.
 
-# In[32]:
 
 
 # Checking column names in the dataset
 print(water_quality_data.columns)
 
-
-# In[ ]:
-
-
-
-
-
-# In[36]:
 
 
 from sklearn.model_selection import train_test_split
@@ -539,27 +446,17 @@ X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
 
-# In[37]:
-
-
 # Initializing the KNN Regressor
 knn_regressor = KNeighborsRegressor(n_neighbors=5)  # You can tune n_neighbors
 
 # Training the model
 knn_regressor.fit(X_train, y_train)
 
-
-# In[38]:
-
-
 # Initialize the KNN Regressor
 knn_regressor = KNeighborsRegressor(n_neighbors=5)  # You can tune n_neighbors
 
 # Training the model
 knn_regressor.fit(X_train, y_train)
-
-
-# In[39]:
 
 
 # Predicting on the test data
@@ -582,7 +479,6 @@ print(f"R-squared: {r2}")
 # 
 # R² of 0.47: This means the model explains 47% of the variance in the target variable (pH). This is a moderate performance, suggesting that there is some predictive power but there's room for improvement.
 
-# In[35]:
 
 
 from sklearn.preprocessing import OneHotEncoder
@@ -636,9 +532,6 @@ print(classification_report(y_test, y_pred))
 # Recall for Unsafe: 1.00 (all unsafe water samples were correctly identified)
 # F1-Score: Overall, the F1-scores are strong for both classes, especially for safe water, indicating good balance between precision and recall.
 # The model seems very effective at identifying both safe and unsafe water quality instances, especially with the high recall for the unsafe class. The slight dip in precision for the unsafe class is typical when dealing with an imbalanced dataset, but overall performance is excellent.
-
-# In[ ]:
-
 
 
 
