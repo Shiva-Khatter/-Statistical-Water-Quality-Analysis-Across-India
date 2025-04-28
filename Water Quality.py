@@ -18,20 +18,11 @@ gw.head()
 
 # Check for missing values across all columns
 gw.isnull().sum()
-
 gw.head()
-
 gw.describe()
-
 print(gw.columns)
-
-
 gw['Fluoride (mg/L)'].unique()
-
-
 gw.info()
-
-
 import pandas as pd
 
 # Assuming you have already loaded the data again as 'df', for example:
