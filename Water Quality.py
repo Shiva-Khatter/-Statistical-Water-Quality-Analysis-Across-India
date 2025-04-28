@@ -8,9 +8,7 @@ import seaborn as sns
 
 
 gw = pd.read_csv('gw.csv')
-
 gw.info()
-
 gw.head()
 # Remove the first row if it contains NaN values
 gw = gw.dropna(how='all').reset_index(drop=True)
