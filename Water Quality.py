@@ -31,23 +31,23 @@ df = pd.read_csv("gw.csv")
 # Converting all the columns except 'State Name' to float
 columns_to_convert = df.columns[df.columns != 'State Name']
 
-# Apply conversion
+# Applying conversion
 df[columns_to_convert] = df[columns_to_convert].apply(pd.to_numeric, errors='coerce')
 
-# Verify the new data types
+# Verifying the new data types
 print(df.dtypes)
 
 # Group by 'State Name' and get descriptive statistics for all water quality parameters
 state_stats = df.groupby('State Name').describe()
 
-# Display the state-wise descriptive statistics
+# Displaying the state-wise descriptive statistics
 print(state_stats)
 
 
 # Getting the mean value of each water quality parameter by state
 state_means = df.groupby('State Name').mean()
 
-# Display the mean values
+# Displaying the mean values
 print(state_means)
 
 import matplotlib.pyplot as plt
@@ -58,10 +58,10 @@ parameters = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)',
               'Faecal Coliform (MPN/100ml)', 'Total Coliform (MPN/100ml)', 
               'Total Dissolved Solids (mg/L)', 'Fluoride (mg/L)']
 
-# Set the plot size
+# Setting the plot size
 plt.figure(figsize=(12, 8))
 
-# Create box plots for each parameter
+# Creating box plots for each parameter
 for i, param in enumerate(parameters, 1):
     plt.subplot(3, 3, i)  # Create a grid of 3x3 for subplots
     sns.boxplot(x='State Name', y=param, data=df)
@@ -69,7 +69,7 @@ for i, param in enumerate(parameters, 1):
     plt.xticks(rotation=90)
     plt.tight_layout()
 
-# Show the plots
+# Showing the plots
 plt.show()
 
 import matplotlib.pyplot as plt
@@ -79,7 +79,7 @@ parameters = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)',
               'Faecal Coliform (MPN/100ml)', 'Total Coliform (MPN/100ml)', 
               'Total Dissolved Solids (mg/L)', 'Fluoride (mg/L)']
 
-# plot size for better readability
+# plotting size for better readability
 plt.figure(figsize=(18, 16))
 
 for i, param in enumerate(parameters, 1):
@@ -90,13 +90,13 @@ for i, param in enumerate(parameters, 1):
     plt.xticks(rotation=90, fontsize=10)
     plt.yticks(fontsize=12)
     
-    # Add a label for the y-axis
+    # Adding a label for the y-axis
     plt.ylabel(param, fontsize=12)
 
-# Adjust the layout to avoid overlapping
+# Adjusting the layout to avoid overlapping
 plt.tight_layout()
 
-# Show the plots
+# Showing the plots
 plt.show()
 
 
