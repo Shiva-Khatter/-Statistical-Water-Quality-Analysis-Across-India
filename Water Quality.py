@@ -179,61 +179,59 @@ plt.tight_layout()
 plt.show()
 
 
-# In[9]:
-
 
 import pandas as pd
 
 # Loading the dataset (replace 'file_path' with the actual path to your file)
 data = pd.read_csv('gw.csv')
 
-# Inspect first few rows of the dataset
+# Inspecting first few rows of the dataset
 print(data.head())
 
-# Check for missing values and erroneous entries
+# Checking for missing values and erroneous entries
 print(data.isnull().sum())  # Number of missing values
 print(data.describe())  # Summary statistics to spot anomalies
 
-# Check for non-numeric values like '#DIV/0!' that need cleaning
+# Checking for non-numeric values like '#DIV/0!' that need cleaning
 print(data.isin(['#DIV/0!']).sum())  # Check for erroneous values
 
-# Convert erroneous values to NaN
+# Converting erroneous values to NaN
 data.replace('#DIV/0!', pd.NA, inplace=True)
 
-# Convert relevant columns to numeric types
+# Converting relevant columns to numeric types
 cols_to_convert = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)', 'Faecal Coliform (MPN/100ml)', 
                    'Total Coliform (MPN/100ml)', 'Total Dissolved Solids (mg/L)', 'Fluoride (mg/L)']
 data[cols_to_convert] = data[cols_to_convert].apply(pd.to_numeric, errors='coerce')
 
-# Check data after cleaning
+# Checking data after cleaning
 print(data.head())
-print(data.isnull().sum())  # Recheck for missing values
+print(data.isnull().sum())  # Rechecking for missing values
 
 
 
 import pandas as pd
 
-# Load the dataset (make sure you update the file path)
+# Loading the dataset (make sure you update the file path)
 water_quality_data = pd.read_csv('gw.csv')
 
-# Check the first few rows of the dataset
+# Checking the first few rows of the dataset
 print(water_quality_data.head())
 
 
-# Fill missing values using the median for each column
+# Filling missing values using the median for each column
 water_quality_data_filled = water_quality_data.copy()
 
-# Fill missing values with the median
+# Filling missing values with the median
 for column in water_quality_data_filled.columns:
     if water_quality_data_filled[column].dtype != 'object':  # Only apply to numerical columns
         median_value = water_quality_data_filled[column].median()
         water_quality_data_filled[column].fillna(median_value, inplace=True)
 
-# Check if the missing values have been filled
+# Checking if the missing values have been filled
 print(water_quality_data_filled.isnull().sum())
 
 
-# Convert the numerical columns to numeric, coercing errors to NaN
+# Converting the numerical columns to numeric, coercing errors to NaN
 numerical_columns = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)', 
                      'Faecal Coliform (MPN/100ml)', 'Total Coliform (MPN/100ml)', 
                      'Total Dissolved Solids (mg/L)', 'Fluoride (mg/L)']
@@ -242,11 +240,11 @@ numerical_columns = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)',
 for column in numerical_columns:
     water_quality_data[column] = pd.to_numeric(water_quality_data[column], errors='coerce')
 
-# Fill missing values for numerical columns with the median
+# Filling missing values for numerical columns with the median
 for column in numerical_columns:
     water_quality_data[column].fillna(water_quality_data[column].median(), inplace=True)
 
-# Check the data to ensure missing values are filled
+# Checking the data to ensure missing values are filled
 print(water_quality_data.isnull().sum())
 
 
@@ -279,15 +277,15 @@ plt.tight_layout()
 plt.show()
 
 
-# Plot histograms for each numerical column
+# Plotting histograms for each numerical column
 numerical_columns = ['pH', 'Conductivity', 'BOD (mg/L)', 'Nitrate N (mg/L)', 
                      'Faecal Coliform (MPN/100ml)', 'Total Coliform (MPN/100ml)', 
                      'Total Dissolved Solids (mg/L)', 'Fluoride (mg/L)']
 
-# Set up the plot grid
+# Setting up the plot grid
 plt.figure(figsize=(14, 10))
 
-# Loop through each numerical column and plot a histogram
+# Looping through each numerical column and plot a histogram
 for i, column in enumerate(numerical_columns, 1):
     plt.subplot(3, 3, i)  # 3x3 grid for the histograms
     plt.hist(water_quality_data[column], bins=20, edgecolor='black')
@@ -299,22 +297,22 @@ plt.tight_layout()
 plt.show()
 
 
-# Compute the correlation matrix for numerical columns
+# Computing the correlation matrix for numerical columns
 correlation_matrix = water_quality_data[numerical_columns].corr()
 
-# Display the correlation matrix
+# Displaying the correlation matrix
 print(correlation_matrix)
 
 import seaborn as sns
 
-# Create a heatmap to visualize correlations
+# Creating a heatmap to visualize correlations
 plt.figure(figsize=(10, 8))
 sns.heatmap(correlation_matrix, annot=True, cmap='coolwarm', fmt='.2f', linewidths=0.5)
 plt.title('Correlation Heatmap of Water Quality Parameters')
 plt.show()
 
 
-# Generate pairwise plot to explore relationships between variables
+# Generating pairwise plot to explore relationships between variables
 sns.pairplot(water_quality_data[numerical_columns])
 plt.suptitle('Pairwise Plot of Water Quality Parameters', y=1.02)
 plt.show()
@@ -357,15 +355,12 @@ print("Accuracy:", accuracy_score(y_test, y_pred))
 print("\nClassification Report:\n", classification_report(y_test, y_pred))
 
 
-# In[30]:
-
-
 from sklearn.neighbors import KNeighborsRegressor
 from sklearn.metrics import mean_squared_error
 
-# Let's predict pH as an example
+#  predicting pH as an example
 X = water_quality_data[feature_columns]
-y = water_quality_data['pH']  # Or choose any other continuous target
+y = water_quality_data['pH']  # Or choosing any other continuous target
 
 # Splitting data into training and testing sets (80-20 split)
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
