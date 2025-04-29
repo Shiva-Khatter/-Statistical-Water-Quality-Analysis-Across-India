@@ -10,19 +10,27 @@ import seaborn as sns
 gw = pd.read_csv('gw.csv')
 gw.info()
 gw.head()
-# Remove the first row if it contains NaN values
+
+# Removing the first row if it contains NaN values
+
 gw = gw.dropna(how='all').reset_index(drop=True)
 
-# Display the first few rows again to ensure the data is cleaned up
+# Displaying the first few rows again to ensure the data is cleaned up
 gw.head()
 
-# Check for missing values across all columns
+# Checking for missing values across all columns
 gw.isnull().sum()
+
 gw.head()
+
 gw.describe()
+
 print(gw.columns)
+
 gw['Fluoride (mg/L)'].unique()
+
 gw.info()
+
 import pandas as pd
 
 # Assuming you have already loaded the data again as 'df', for example:
