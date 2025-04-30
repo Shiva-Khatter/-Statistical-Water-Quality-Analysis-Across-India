@@ -13,6 +13,7 @@ Features
 - Data Cleaning: Handles missing values, erroneous entries (e.g., #DIV/0!), and converts data types for analysis.
 - Exploratory Data Analysis (EDA): Generates descriptive statistics, histograms, box plots, violin plots, and correlation heatmaps.
 - Visualization: Creates state-wise visualizations for water quality parameters using line, bar, scatter, and histogram plots.
+
 Machine Learning:
 - Classification: Predicts water quality as "Safe" or "Unsafe" using KNN and Random Forest classifiers.
 - Regression: Predicts continuous parameters (e.g., pH) using KNN Regressor.
