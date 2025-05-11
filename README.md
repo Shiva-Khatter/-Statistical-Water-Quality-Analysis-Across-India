@@ -19,4 +19,4 @@ Machine Learning:
 - Regression: Predicts continuous parameters (e.g., pH) using KNN Regressor.
 - Evaluation: Provides accuracy, precision, recall, F1-score, MAE, MSE, and R² metrics
 
- ---
+ --- 
