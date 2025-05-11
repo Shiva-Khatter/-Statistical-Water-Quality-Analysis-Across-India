@@ -5,7 +5,7 @@ This project conducts a comprehensive statistical analysis of groundwater qualit
 
 - Analyze key water quality parameters such as pH, Conductivity, BOD, Nitrate, Faecal Coliform, Total Coliform, Total Dissolved Solids (TDS), and Fluoride.
 - Provide state-wise statistical summaries and visualizations.
-- Predict water quality safety using classification models (KNN and Random Forest).
+- Predict water quality safety using classification models (KNN and Random Forest).  
 - Predict continuous water quality parameters (e.g., pH) using regression models (KNN Regressor).
 The project leverages Python libraries like pandas, numpy, matplotlib, seaborn, and scikit-learn to process, visualize, and model the data.
 
